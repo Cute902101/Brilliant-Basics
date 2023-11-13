@@ -1,69 +1,171 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.hidden-scrollbar::-webkit-scrollbar {
+  display:none;
+  width: 0px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+
+.hidden-scrollbar::-webkit-scrollbar-track {
+  display: none;
+  width: 0px;
 }
-a:hover {
-  color: #535bf2;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+  background:#888
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #29599c;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  background: linear-gradient(to bottom, #181818, #121212);
   min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+
+} 
+
+@keyframes slidingButton {
+  from {
+    width: .5px;
+    transform: translateX(0px);
+  }
+
+  to {
+    opacity: .5;
+    width: 100%;
+    transform: translateX(0px);
+  }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@keyframes exitSlidingButton {
+  from {
+    opacity: .5;
+    width: 100%;
+  }
+  to {
+    opacity: .3;
+    width:0%;
+  }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.slick-slider.reverse{
+  transform:rotate(180deg);
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.slick-slider.reverse .slick-slide{
+  transform:rotate(180deg);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.sliding-button {
+  animation: slidingButton .2s ease-in-out forwards;
+  
+  
+}
+
+.exit-sliding-button{
+  animation: exitSlidingButton .2s ease-out forwards;
+}
+
+.slick-slider {
+ width: 60vw;
+ transform:rotate(180deg);
+}
+
+.slick-list div {
+  display: flex;
+  justify-items: center;
+  align-items: baseline;
+  
+  height: 600px;
+}
+
+.slick-slide div {
+  box-shadow: 0px 0px 20px rgba(61, 61, 61, 0.648);
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  height: 220px;
+  background-color: white;
+  transform: scale(.8);
+  transition: transform 300ms;
+  opacity: .8;
+  border-radius: 10px;
+}
+.slick-slide img {
+  transform:rotate(180deg);
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
+  box-shadow: none;
+  
+  
+}
+
+.slick-current div {
+  transform: scale(1.1);
+  transform: translateY(10%);
+
+  background-color: white;
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  opacity: 1;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(61, 61, 61, 0.648);
+  animation: travelingCenterSlide 1s ease-in-out forwards;
+}
+
+.slick-current img {
+  object-fit: scale-down;
+}
+
+.display-fade {
+  
+    width: 1450px; 
+    height: 465.5px;
+    background: radial-gradient(circle,  rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.867) 100%);
+    border-radius: 0%;
+    box-shadow: -10px -20px 100px 100px rgba(255, 255, 255, 0.917);
+    border: none;
+    
+}
+
+.show-case {
+  box-shadow: 0px 0px 20px rgba(61, 61, 61, 0.648);
+  padding: 5%;
+  border-radius: 2%;
+}
+
+.drop-effect {
+  box-shadow: inset 0px 0px 10px 10px #9a9ff418;
+}
+
+.halo-effect {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.halo-text {
+  position: relative;
 }
