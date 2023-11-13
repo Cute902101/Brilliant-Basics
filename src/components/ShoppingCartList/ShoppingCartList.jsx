@@ -41,8 +41,8 @@ export default function CartList() {
 
     // Render UI for shopping cart
     return (
-      <div className="fixed right-0 overflow-scroll hidden-scrollbar">
-        <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] sm:grid-cols-[0.75fr_1fr] bg-gradient-to-b from-black to-slate-800 h-[100vh]">
+      <div className="fixed right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full]">
+        <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] sm:grid-cols-[0.75fr_1fr]  h-[100vh] rounded-md">
           {/* Loop through each shopping cart item */}
           {shoppingCart.map((cart) => (
             <li className="flex flex-col w-full h-[250px] mb-36" key={cart.product.id}>
