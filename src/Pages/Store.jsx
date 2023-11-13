@@ -1,7 +1,9 @@
 import React from "react";
 import { ProductProvider } from "../Services/ProductContext";
 import { CartProvider } from "../Services/CartContext";
+import Navbar from "../components/Navbar";
 import ProductCardList from "../components/ProductCardList/ProductCardList";
+import ShoppingCartList from "../components/ShoppingCartList/ShoppingCartList"
 
 
 export default function Store () {
@@ -10,7 +12,12 @@ export default function Store () {
         <>
         <ProductProvider>
             <CartProvider>
-                <ProductCardList></ProductCardList>
+                <Navbar></Navbar>
+                <div className="flex flex-row justify-between">
+                   <ProductCardList></ProductCardList>
+                    <ShoppingCartList></ShoppingCartList> 
+                </div>
+                
             </CartProvider>
         </ProductProvider>
         </>
