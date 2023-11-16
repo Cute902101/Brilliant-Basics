@@ -5,13 +5,15 @@ import App from './App.jsx';
 import Store from './Pages/Store.jsx';
 import './index.css';
 
+const basename = "/Brilliant-Basics";
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: `${basename}/`,
     element: <App/>
   },
   {
-    path: "/store",
+    path: `${basename}/store`,
     element: <Store/>,
   },
 ]);
