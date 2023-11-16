@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <>
             <div className="card-container flex flex-row bg-[#404040] w-[100vw] h-[50vh] shadow-lg shadow-[#505050] px-2 py-10 overflow-hidden justify-center">
-                <div className="flex flex-row bg-white display-fade mt-[-40px] mr[-50px] justify-start">
+                <div className="flex flex-row bg-white display-fade mt-[-100px] mr[-50px] justify-start">
                     <div className="mt-[-200px]">
                         <Slider {...settings}>
                             {productList.map((card, index) => (

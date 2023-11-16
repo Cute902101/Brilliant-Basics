@@ -84,7 +84,7 @@ body {
 }
 
 .slick-slider {
- width: 60vw;
+ width: 100vw;
  transform:rotate(180deg);
 }
 
