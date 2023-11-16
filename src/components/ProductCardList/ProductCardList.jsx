@@ -73,7 +73,7 @@ export default function ProductCardList() {
                 </div>
                 <div className="flex flex-col w-96 pl-10 hover:shadow-black">
                   <a
-                    href="/"
+                    href="/Brilliant-Basics/"
                     className="font-bold hover:text-blue-400"
                   >
                     {product.title}

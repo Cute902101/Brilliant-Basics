@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       <div className="flex flex-row w-[100vw] justify-between h-16 bg-black shadow-lg overflow-hidden">
-        <Link to="/" className="text-slate-300 text-[20px] font-semibold p-4"> {/* Link to the home page */}
+        <Link to="/Brilliant-Basics/" className="text-slate-300 text-[20px] font-semibold p-4"> {/* Link to the home page */}
           Brilliant Basics.
         </Link>
 

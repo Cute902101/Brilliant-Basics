@@ -42,8 +42,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row">
-                <div className="flex flex-col font-bold text-[90px] text-[#FFFFFF] justify-between">
+            <div className="flex flex-row justify-between">
+                <div className="flex flex-col font-bold text-[55px] text-[#FFFFFF]  ">
                     <div className="">BRILLIANT BASICS</div>
                     <div className="text-gray-400">ALL YOU WANT</div>
                     <div className="text-gray-600">ALL YOU NEED</div>
