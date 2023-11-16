@@ -1,4 +1,7 @@
 # Brilliant-Basics
+
+<img width="640" alt="Screenshot 2023-11-16 at 4 39 13" src="https://github.com/Marcelo-Hernandez/Brilliant-Basics/assets/111325080/627c5055-b9c7-4c64-8bf6-548ebdde2386">
+
 E-commerce Demo:
 - This page mocks a basic e-commerce site using ReactJS, TailwindCSS, React-Slick.
 
