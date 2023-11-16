@@ -4,7 +4,9 @@ const plugin = require('tailwindcss/plugin');
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: ['responsive', 'hover', 'focus'],
+    },
   },
   plugins: [
     plugin(({ matchUtilities }) => {
