@@ -1,48 +1,72 @@
-import React from "react";
-import { useCartContext } from "../../Services/CartContext"; 
+import React, { useState, useEffect } from "react";
+import { useCartContext } from "../../Services/CartContext";
+import { retrieveLocalStorage, updateLocalStorage } from "../../Services/localStorage";
 import EmptyCartSvg from "../../assets/images/EmptyCartSvg";
 
 // Display the shopping cart
 export default function CartList() {
   const { shoppingCart, setShoppingCart } = useCartContext();
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const screenSizeCheck = () => {
+      setIsMobileScreen(window.innerWidth <= 900);
+    };
+
+    screenSizeCheck();
+    window.addEventListener("check", screenSizeCheck);
+
+    return () => {
+      window.removeEventListener("check", screenSizeCheck);
+    };
+  }, []);
 
   const handleEditCart = (productId, newQuantity) => {
     // Replace the old quantity with the edited quantity of the item
-    const editedCartItem = shoppingCart.map((cartItem) => 
+    const editedCartItem = shoppingCart.map((cartItem) =>
       cartItem.product.id === productId
-      ? {...cartItem, quantity: newQuantity}
-      : cartItem
+        ? { ...cartItem, quantity: newQuantity }
+        : cartItem
     );
-  
-    // Filter the item from the cart if the new quantity falls below one. Else, update with new quantity 
+
+    // Filter the item from the cart if the new quantity falls below one. Else, update with new quantity
     if (newQuantity <= 0) {
       const removedCartItem = shoppingCart.filter(
-        (cartItem) => cartItem.product.id != productId
+        (cartItem) => cartItem.product.id !== productId
       );
-      setShoppingCart(removedCartItem);    
+      setShoppingCart(removedCartItem);
+      updateLocalStorage(removedCartItem);
     } else {
-      setShoppingCart(editedCartItem)
+      setShoppingCart(editedCartItem);
+      updateLocalStorage(editedCartItem);
     }
+  };
 
+  useEffect(() => {
+    const savedCart = retrieveLocalStorage();
+    setShoppingCart(savedCart);
+  }, [setShoppingCart]);
+
+  if (isMobileScreen) {
+    return <> </>;
   }
 
   // Check for empty shopping cart
   if (shoppingCart.length <= 0) {
     // Render UI for an empty shopping cart
     return (
-      <div className="fixed right-0 overflow-scroll hidden-scrollbar">
-        <ul className="m-0 flex justify-center items-center flex-col list-none gap-x-[10px] p-[20px] w-[350px] sm:grid-cols-[0.75fr_1fr] bg-gradient-to-b from-black to-slate-800 h-[100vh]">
+      <div className="w-[100vw] sm:w-[350px] sm:fixed sm:right-0 hidden-scrollbar">
+        <ul className="m-0 flex justify-center items-center flex-col list-none gap-x-[10px] p-[20px] bg-gradient-to-b from-black to-slate-800 h-[100vh]">
           <EmptyCartSvg />
           <li className="text-white">Your Cart is Empty</li>
         </ul>
       </div>
     );
   } else {
-
     // Render UI for shopping cart
     return (
-      <div className="fixed right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full]">
-        <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] sm:grid-cols-[0.75fr_1fr]  h-[100vh] rounded-md">
+      <div className="mt-16 w-[100vw] sm:w-[350px] sm:fixed sm:right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full]">
+        <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] h-[100vh] rounded-md">
           {/* Loop through each shopping cart item */}
           {shoppingCart.map((cart) => (
             <li className="flex flex-col w-full h-[250px] mb-36" key={cart.product.id}>
@@ -55,19 +79,25 @@ export default function CartList() {
                     <p className="text-white">${cart.product.price}</p>
                     {/* Edit the quantity of this cart item */}
                     <div>
-                      <button 
+                      <button
                         className="p-2 font-bold"
                         onClick={() => handleEditCart(cart.product.id, cart.quantity - 1)}
-                        > - </button>
+                      >
+                        {" "}
+                        -{" "}
+                      </button>
                       <input
                         className="w-10 h-10 px-1 bg-inherit text-white border-b-2"
                         type="number"
                         value={cart.quantity}
                       />
-                      <button 
+                      <button
                         className="p-2 font-bold"
                         onClick={() => handleEditCart(cart.product.id, cart.quantity + 1)}
-                        > + </button>
+                      >
+                        {" "}
+                        +{" "}
+                      </button>
                     </div>
                   </div>
                   {/* Display product title */}
