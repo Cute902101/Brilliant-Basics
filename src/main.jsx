@@ -3,19 +3,23 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Store from './Pages/Store.jsx';
+import MobileCart from './Pages/MobileCart.jsx';
 import './index.css';
-
-const basename = "/Brilliant-Basics";
 
 const router = createBrowserRouter([
   {
-    path: `${basename}/`,
+    path: "/Brilliant-Basics/",
     element: <App/>
   },
   {
-    path: "/store",
+    path: "/Brilliant-Basics/store",
     element: <Store/>,
   },
+  {
+    path: "/Brilliant-Basics/MobileCart",
+    element: <MobileCart/>
+  }
+  
 ]);
 
 

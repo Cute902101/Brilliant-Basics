@@ -11,7 +11,7 @@ export default function SlidingButton() {
   return (
     <div className="flex flex-row mt-10 group">
       <Link
-        to="/store"
+        to="/Brilliant-Basics/store"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         className="relative flex justify-center items-center bg-[#404040] w-[157.55px] h-[70px] opacity-90 halo-effect py-2 px-4 text-[19px] font-semibold text-white"

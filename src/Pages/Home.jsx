@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import { NextArrowStyles, PrevArrowStyles } from "../components/NextArrowStyles";
 import SlidingButton from "../components/SlidingButton";
 import { useProductContext } from "../Services/ProductContext";
 import "./Home.css"
@@ -12,9 +11,6 @@ import "./slick-theme.css"
 export default function Home() {
     // useProductContext to get product data
     const { productList, setProductList } = useProductContext();
-
-    const [ isNavFixed, setIsNavFixed ] = useState(false);
-    const [ isBgGold, setIsBgGold ] = useState(false)
 
     // Set the initial slide index
     const [isActive, setIsActive] = useState(0);
