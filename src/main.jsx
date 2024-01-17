@@ -6,6 +6,7 @@ import Store from './Pages/Store.jsx';
 import MobileCart from './Pages/MobileCart.jsx';
 import './index.css';
 
+
 const router = createBrowserRouter([
   {
     path: "/Brilliant-Basics/",

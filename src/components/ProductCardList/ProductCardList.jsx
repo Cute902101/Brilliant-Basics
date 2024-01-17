@@ -135,7 +135,7 @@ export default function ProductCardList() {
       >
         <div className="rounded-md mb-10 drop-shadow-[100pxw]">
           <div className="flex flex-col sm:flex-row p-4 sm:p-10" key={product.id}>
-            <div className="w-full sm:w-72 h-52 sm:h-72 bg-white rounded-md halo-effect mb-4 sm:mb-0">
+            <div className="w-full sm:w-72 h-52 sm:h-72 bg-[] rounded-md halo-effect mb-4 sm:mb-0">
               <a href="/">
                 <img
                   className="w-full h-full object-scale-down"
