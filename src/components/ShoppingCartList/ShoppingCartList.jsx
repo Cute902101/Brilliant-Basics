@@ -5,7 +5,7 @@ import EmptyCartSvg from "../../assets/images/EmptyCartSvg";
 import "./ShoppingCartList.css"
 
 // Display the shopping cart
-export default function CartList() {
+export default function CartList({isCartVisible}) {
   const { shoppingCart, setShoppingCart } = useCartContext();
  
 
@@ -47,14 +47,16 @@ export default function CartList() {
         <ul className="shopping-cart">
           <EmptyCartSvg />
           <li className="text-white">Your Cart is Empty</li>
+          <li onClick={isCartVisible} className="text-green-400 hover:text-blue-400 hover:cursor-pointer">Continue Shopping</li>
         </ul>
       </div>
     );
   } else {
     // Render UI for shopping cart
     return (
-      <div className="mt-16 w-[100vw] sm:w-[350px] sm:fixed sm:right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full] shopping-cart">
-        <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] h-[100vh] rounded-md">
+      <div className="shopping-cart-container cart-slide-in">
+        <div className="p-2 absolute"><img onClick={isCartVisible} className="hover:cursor-pointer" width="34" height="34" src="https://img.icons8.com/plumpy/24/delete-sign--v2.png" alt="delete-sign--v2"/></div>
+        <ul className="mt-10 flex flex-col list-none gap-x-[10px] p-[20px] w-[100%] h-[100vh] rounded-md overflow-y-auto hidden-scrollbar">
           {/* Loop through each shopping cart item */}
           {shoppingCart.map((cart) => (
             <li className="flex flex-col w-full h-[250px] mb-36" key={cart.product.id}>

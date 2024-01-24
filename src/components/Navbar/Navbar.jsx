@@ -62,13 +62,13 @@ export default function Navbar() {
                         <div className=" font-bold text-5xl">Brilliant</div>
                         <h2 className=" font-thin text-4xl">Basics</h2>
         </div>
-        
-        <a href="/Brilliant-Basics/" >
+       <div className="flex flex-row gap-10">
+         <a href="/Brilliant-Basics/" >
           <img className="w-10" src="https://img.icons8.com/plumpy/24/exterior--v1.png" alt="Home"/>
         </a>
-        <a href="#" onClick={() => setIsCartVisible(!isCartVisible)}>
+        <div className=" cursor-pointer " onClick={() => setIsCartVisible(!isCartVisible)}>
           <CartSvg/>
-        </a>
+        </div>
           <TransitionGroup>
             {isCartVisible && (
               <CSSTransition 
@@ -76,11 +76,13 @@ export default function Navbar() {
                 timeout={3000}
                 classNames="cart-slide-in"
                 >
-                  <CartList/>
+                  <CartList isCartVisible={()=> setIsCartVisible(!isCartVisible)}/>
               </CSSTransition>
             )}
           </TransitionGroup>
+        </div> 
+       
       </nav>
-
+  
   );
 }
