@@ -30,7 +30,7 @@ export default function AddToCart({ addToCart, product }) {
   return (
     <div>
       {/* Add to cart button */}
-      <div className="p-2 mb-10">
+      <div className="p-2 mb-2">
         <button
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
@@ -52,7 +52,7 @@ export default function AddToCart({ addToCart, product }) {
           -
         </button>
         <input
-          className="w-10 h-10 px-1 bg-inherit text-white border-b-2"
+          className="w-10 h-10 px-1 bg-inherit text-[#3A5A40] border-b-2 border-[#3A5A40]"
           type="number"
           value={count}
           onChange={(e) => setCount(parseInt(e.target.value))}

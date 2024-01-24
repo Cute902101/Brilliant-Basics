@@ -1,5 +1,5 @@
 body {
-    background-color: #3A5A40;
+    background-color: #DAD7CD;
 
 }
 
@@ -28,7 +28,6 @@ body {
     position: fixed;
     z-index: 4;
     text-align: left;
-    position: fixed;
     top: 0;
     height: 13vh;
     justify-content: left;

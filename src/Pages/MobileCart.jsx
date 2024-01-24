@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductProvider } from "../Services/ProductContext";
 import { CartProvider } from "../Services/CartContext";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import MobileShoppingCart from "../components/ShoppingCartList/mobileShoppingCart";
 
 export default function MobileCart() {

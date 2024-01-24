@@ -1,0 +1,14 @@
+.shopping-nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 13vh;
+    background: linear-gradient(to bottom, #9CAF88, #9caf88 );
+    padding: 10px;;
+}
+

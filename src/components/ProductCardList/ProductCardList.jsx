@@ -5,6 +5,7 @@ import { updateLocalStorage } from "../../Services/localStorage";
 import AddToCart from "./AddToCart";
 import EmptyCartSvg from "../../assets/images/EmptyCartSvg";
 import StarIconSvg from "../../assets/images/StarIconSvg";
+import "./ProductCardList.css"
 
 // Main product list component for use in store page
 export default function ProductCardList() {
@@ -44,11 +45,11 @@ export default function ProductCardList() {
     const newPrice =
       priceToStr.includes(".") ? (
         <>
-          {splitPrice[0]} <span className="text-sm">{splitPrice[1]}</span>
+          {splitPrice[0]} <span className="text-sm text-[#3A5A40]">{splitPrice[1]}</span>
         </>
       ) : (
         <>
-          {price} <span className="text-sm">00</span>
+          {price} <span className="text-sm text-[#3A5A40]">00</span>
         </>
       );
 
@@ -126,55 +127,42 @@ export default function ProductCardList() {
   
   
   return (
-  <div className="overflow-hidden pt-10 sm:pt-20">
-  <ul className="flex flex-col justify-center items-center">
-    {productList.map((product) => (
-      <div
-        className="mx-4 sm:mx-0 w-full sm:w-[70vw] lg:w-[50vw] xl:w-[40vw] 2xl:w-[70vw] justify-between drop-effect mb-10 rounded-md text-white"
-        key={product.id}
-      >
-        <div className="rounded-md mb-10 drop-shadow-[100pxw]">
-          <div className="flex flex-col sm:flex-row p-4 sm:p-10" key={product.id}>
-            <div className="w-full sm:w-72 h-52 sm:h-72 bg-[] rounded-md halo-effect mb-4 sm:mb-0">
-              <a href="/">
-                <img
-                  className="w-full h-full object-scale-down"
-                  src={product.image}
-                  alt={product.title}
-                />
-              </a>
-            </div>
-            <div className="flex flex-col w-full sm:w-96 pl-4 sm:pl-10 hover:shadow-black">
-              <a
-                href="/Brilliant-Basics"
-                className="font-bold hover:text-blue-400"
-              >
-                {product.title}
-              </a>
-              <p className="flex flex-row items-center">
-                <span>
-                  <StarIconSvg/>
-                </span>
-                {product.rating.rate}
-                <span className="pl-2 text-xs font-medium">
-                  ({product.rating.count}) Global Ratings
-                </span>
-              </p>
-              <p className="pl-4 text-lg font-normal">
-                $ {priceHelper(product.price)}
-              </p>
-              <div className="mt-4 sm:mt-8">
-                <AddToCart
-                  product={product}
-                  addToCart={addToCart}
-                />
-              </div>
-            </div>
+  <div className="store-container">
+    <ul className="product-list-container">
+      {productList.map((product) => (
+        <div
+          className="product-card text-[#3A5A40] halo-effect"
+          key={product.id}
+        >
+          <div className="product-image-bg">
+            <img src={product.image} alt={product.title}/>
+          </div>
+          <div className="product-text">
+            <h className="font-bold">
+              {product.title}
+            </h>
+            <p className="flex flex-row items-center">
+                  <span>
+                    <StarIconSvg/>
+                  </span>
+                  {product.rating.rate}
+                  <span className="pl-2 text-xs font-medium">
+                    ({product.rating.count}) Global Ratings
+                  </span>
+            </p>
+            <p className="pl-4 text-lg font-normal text-[#3A5A40]">
+                  $ {priceHelper(product.price)}
+             </p>
+              <div className="mt-1">
+                  <AddToCart
+                    product={product}
+                    addToCart={addToCart}
+                  />
+                </div>
           </div>
         </div>
-      </div>
-    ))}
-  </ul>
+      ))}
+    </ul>
 </div>
   );
   

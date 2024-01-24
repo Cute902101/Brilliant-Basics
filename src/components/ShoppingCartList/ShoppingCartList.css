@@ -1,0 +1,32 @@
+.shopping-cart-container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.shopping-cart {
+    position: absolute;
+    right: 100;
+}
+
+.cart-slide-in-enter {
+  opacity: 0;
+}
+
+.cart-slide-in-enter-active {
+  opacity: 1;
+  transform: translateX(-100%);
+  transition: opacity 500ms, transform 500ms;
+  
+}
+
+.cart-slide-in-exit {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+.cart-slide-in-exit-active {
+  opacity: 0;
+  transform: translateX(10%);
+  transition: opacity 500ms, transform 500ms;
+}

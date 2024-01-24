@@ -100,7 +100,7 @@ export default function Home() {
                         <h2 className=" font-thin text-4xl">Basics</h2>
                     </div>
                     <div className="absolute right-5 top-5">
-                    <a href="#">
+                    <a href="/Brilliant-Basics/store">
                      <img className="w-10" src="https://img.icons8.com/plumpy/96/shopaholic.png" alt="shopaholic"/>
                     </a>
                     </div>

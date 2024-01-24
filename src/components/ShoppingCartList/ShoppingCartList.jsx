@@ -2,24 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useCartContext } from "../../Services/CartContext";
 import { retrieveLocalStorage, updateLocalStorage } from "../../Services/localStorage";
 import EmptyCartSvg from "../../assets/images/EmptyCartSvg";
+import "./ShoppingCartList.css"
 
 // Display the shopping cart
 export default function CartList() {
   const { shoppingCart, setShoppingCart } = useCartContext();
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  useEffect(() => {
-    const screenSizeCheck = () => {
-      setIsMobileScreen(window.innerWidth <= 900);
-    };
-
-    screenSizeCheck();
-    window.addEventListener("check", screenSizeCheck);
-
-    return () => {
-      window.removeEventListener("check", screenSizeCheck);
-    };
-  }, []);
+ 
 
   const handleEditCart = (productId, newQuantity) => {
     // Replace the old quantity with the edited quantity of the item
@@ -47,16 +35,16 @@ export default function CartList() {
     setShoppingCart(savedCart);
   }, [setShoppingCart]);
 
-  if (isMobileScreen) {
-    return <> </>;
-  }
+  // if (isMobileScreen) {
+  //   return <> </>;
+  // }
 
   // Check for empty shopping cart
   if (shoppingCart.length <= 0) {
     // Render UI for an empty shopping cart
     return (
-      <div className="w-[100vw] sm:w-[350px] sm:fixed sm:right-0 hidden-scrollbar">
-        <ul className="m-0 flex justify-center items-center flex-col list-none gap-x-[10px] p-[20px] bg-gradient-to-b from-black to-slate-800 h-[100vh]">
+      <div className="shopping-cart-container cart-slide-in">
+        <ul className="shopping-cart">
           <EmptyCartSvg />
           <li className="text-white">Your Cart is Empty</li>
         </ul>
@@ -65,7 +53,7 @@ export default function CartList() {
   } else {
     // Render UI for shopping cart
     return (
-      <div className="mt-16 w-[100vw] sm:w-[350px] sm:fixed sm:right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full]">
+      <div className="mt-16 w-[100vw] sm:w-[350px] sm:fixed sm:right-0 overflow-scroll hidden-scrollbar bg-gradient-to-b from-black to-slate-800 h-[full] shopping-cart">
         <ul className="m-0 flex flex-col list-none gap-x-[10px] p-[20px] w-[350px] h-[100vh] rounded-md">
           {/* Loop through each shopping cart item */}
           {shoppingCart.map((cart) => (
