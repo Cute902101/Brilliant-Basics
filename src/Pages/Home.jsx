@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import SlidingButton from "../components/SlidingButton";
 import HomepageSlider from "../components/HomepageSlider/HomepageSlider";
 import ProductSlider from "../components/ProductSlider/ProductSlider.jsx"
 import StarIconSvg from "../assets/images/StarIconSvg";
+import GithubMark from "../assets/images/GithubMark.jsx";
 import { useProductContext } from "../Services/ProductContext";
 import "./Home.css"
 import "slick-carousel/slick/slick.css"; 
@@ -17,37 +19,10 @@ export default function Home() {
     const [ isNavFixed, setIsNavFixed ] = useState(false);
     const [ isCardOne, setIsCardOne ] = useState(false);
     const [ isCardTwo, setIsCardTwo ] = useState(false);
+    const [ githubLink, setGithubLink ] = useState("https://github.com/marcelo-Hernandez/");
 
     // Set the initial slide index
     const [isActive, setIsActive] = useState(0);
-
-    // Settings for the slider component
-    const slideshowSettings = {
-        dots: true,
-        arrows: false, 
-        centerMode: false,
-        fade: true,
-        infinite: true, 
-        autoplay: false,  
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
-
-    const settings = {
-        arrows: false, 
-        centerMode: true, // Enable center mode
-        // className: "center", // Add CSS class "center" for styling purposes
-        slidesToShow: 3,
-        infinite: true, 
-        autoplay: true,
-        // centerPadding: "0", 
-        // focusOnSelect: true,
-        autoplaySpeed: 4000, 
-        // beforeChange: (current, next) => {
-        //     // Update the active slide index before a slide change
-        //     setIsActive(next);
-        // },
-    };
 
 
     const fixNavbar = () => {
@@ -101,9 +76,9 @@ export default function Home() {
                         <h2 className=" font-thin text-4xl">Basics</h2>
                     </div>
                     <div className="absolute right-5 top-5">
-                    <a href="/Brilliant-Basics/store">
+                    <Link to="/Brilliant-Basics/store">
                      <img className="w-10" src="https://img.icons8.com/plumpy/96/shopaholic.png" alt="shopaholic"/>
-                    </a>
+                    </Link>
                     </div>
                 </nav>
             </header>
@@ -133,11 +108,11 @@ export default function Home() {
                     <p className="font-normal p-4">Our products are more than just items; they are a reflection of your unique taste and a commitment to quality living.</p>
                 </div>
                 <div className="info-img-1">
-                  <img className=" " src="https://images.pexels.com/photos/19271742/pexels-photo-19271742/free-photo-of-man-walking-down-a-boardwalk-between-giant-reeds.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                  <img  src="https://images.pexels.com/photos/19271742/pexels-photo-19271742/free-photo-of-man-walking-down-a-boardwalk-between-giant-reeds.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 </div> 
               </div>
               <div className={isCardTwo ? "info-card-2 fade-right" : "info-card-2"}><div className="info-img-2">
-                  <img className=" " src="https://images.pexels.com/photos/2682452/pexels-photo-2682452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                  <img  src="https://images.pexels.com/photos/2682452/pexels-photo-2682452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 </div> 
                 <div className={isCardTwo ? "info-text-2 fade-text" : "info-text-2"}>
                     <p className="font-normal">Whether you're enhancing your home, refining your style, or seeking thoughtful gifts, Brilliant Basics is your destination for must-have essentials that stand the test of time.</p>
@@ -163,6 +138,7 @@ export default function Home() {
                                 className={isActive? "try" : ""}
                                 src={productList[isActive].image}
                                 alt={`Product ${isActive}`}
+                                lazy="true"
                             />
                         )}
                       </div>
@@ -179,20 +155,13 @@ export default function Home() {
                 </div>
               </div>      
 </section>
-
-               
-
-            
-
-
-
-
-
-
-
-
-                
             </section>
+<footer className="footer-style">
+  <div className="github-link-style">
+    <GithubMark/>
+    <a href={githubLink} target="_blank" rel="noopener noreferrer">@Marcelo-Hernandez</a>
+  </div>
+</footer>
 
 
 
@@ -201,10 +170,6 @@ export default function Home() {
 
 
 
-
-<div className="h-[1000px]">
-
-</div>
 
 
 

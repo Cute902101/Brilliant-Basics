@@ -41,7 +41,11 @@ export default function ProductSlider() {
             disableOnInteraction: false,
           }}
            breakpoints={{
-            1440:{
+            1000:{
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1530:{
               slidesPerView: 5,
               spaceBetween: 20,
             }
@@ -50,7 +54,7 @@ export default function ProductSlider() {
 
            className="product-slider">
             {productList.map((card, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={card.id}>
                 <div className='flex justify-center'>
                   <div className="looped-product-card-container" >
                     <div className="looped-product-card">

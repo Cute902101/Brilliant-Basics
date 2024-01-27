@@ -370,6 +370,23 @@ body {
     padding: 5%;
 }
 
+.footer-style {
+    background-color: #588157;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-link-style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #24292f;
+}
+
 @media screen and (min-width: 768px) {
     .info-card-1{
         flex-direction: row;
