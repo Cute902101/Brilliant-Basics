@@ -11,7 +11,6 @@ export default function Store() {
       <CartProvider>
         <Navbar />
         <ProductCardList />
-         
       </CartProvider>
     </ProductProvider>
   );

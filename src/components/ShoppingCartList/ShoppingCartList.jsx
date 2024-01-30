@@ -35,9 +35,6 @@ export default function CartList({isCartVisible}) {
     setShoppingCart(savedCart);
   }, [setShoppingCart]);
 
-  // if (isMobileScreen) {
-  //   return <> </>;
-  // }
 
   // Check for empty shopping cart
   if (shoppingCart.length <= 0) {

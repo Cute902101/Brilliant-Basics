@@ -11,35 +11,7 @@ import "./Navbar.css"
 export default function Navbar() {
   const { productList } = useProductContext();
   const { shoppingCart, setShoppingCart } = useCartContext();
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-  const [ isNavFixed, setIsNavFixed ] = useState(false);
   const [ isCartVisible, setIsCartVisible ] = useState(false);
-
-  const fixNavbar = () => {
-        window.scrollY >= 150 ? setIsNavFixed(true) : setIsNavFixed(false);
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", fixNavbar);
-
-       
-        return () => {
-            window.removeEventListener("scroll", fixNavbar);
-        };
-    }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth <= 900);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   // Calculate total cart price
   const cartTotalPrice = shoppingCart.reduce(
@@ -68,6 +40,7 @@ export default function Navbar() {
         </a>
         <div className=" cursor-pointer " onClick={() => setIsCartVisible(!isCartVisible)}>
           <CartSvg/>
+          {isCartVisible ? <p className="text-white absolute">${roundedTotalPrice}</p> : <></>}
         </div>
           <TransitionGroup>
             {isCartVisible && (
