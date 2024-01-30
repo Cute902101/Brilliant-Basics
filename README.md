@@ -1,14 +1,14 @@
 # Brilliant-Basics
 
-<img width="640" alt="Screenshot 2023-11-16 at 4 39 13" src="https://github.com/Marcelo-Hernandez/Brilliant-Basics/assets/111325080/627c5055-b9c7-4c64-8bf6-548ebdde2386">
+<img width="640" alt="Desktop-Homepage" src="https://github.com/Marcelo-Hernandez/Brilliant-Basics/assets/111325080/8d53642c-b6ef-4b15-b1a0-beef4fba8abc">
+
+<img width="325" alt="Mobile-Homepage" src="https://github.com/Marcelo-Hernandez/Brilliant-Basics/assets/111325080/f9cc4f63-faef-466d-9439-cadfb0220090">
 
 E-commerce Demo:
-- This page mocks a basic e-commerce site using ReactJS, TailwindCSS, React-Slick.
+- This page mocks a basic e-commerce site using ReactJS, TailwindCSS, SwiperJS.
 
 Features:
--
-- The home page features a showcase carousel that targets the center product and applies styling corresponding to that product. 
-The targeted product also renders a description next to the stylized "Shop Now" button.
+- Responsive to most screen sizes
 - Users can add products to their "cart"
 - Cart items may be added or removed
 - Subtotal will adjust to edits in the cart.
